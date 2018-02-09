@@ -9,7 +9,7 @@ import java.util.Properties;
  * mybatis 分页插件
  * Created by xiejs on 2018/2/8.
  */
-public class MyBatisPageConfiguration {
+public class MyBatisPageConfig {
     //配置mybatis的分页插件pageHelper
     @Bean
     public PageHelper pageHelper(){
