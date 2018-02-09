@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper 
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.staok.spboot.mapper.UserMapper">
+	<sql id="tableName">t_user</sql>
+	<resultMap id="BaseResultMap" type="com.staok.spboot.entity.User">
+		<id column="id" property="id"/>
+		<result column="userName" property="userName"/>
+		<result column="userPwd" property="userPwd"/>
+		<result column="email" property="email"/>
+		<result column="registerTime" property="registerTime"/>
+	</resultMap>
+	
+	<!-- 常见问题  -->
+	<select id="selectById" resultType="com.staok.spboot.entity.User" parameterType="java.lang.String">
+		select id,userName,userPwd,email,registerTime
+		from t_user
+		where id = #{id} 
+	</select>
+</mapper>

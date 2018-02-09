@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper 
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.staok.spboot.mapper.BigDataMapper">
+	<sql id="tableName">t_big_data</sql>
+	
+	<select id="selectById" resultType="com.staok.spboot.entity.BigData" parameterType="java.lang.Long">
+		select actTypeName, actName, doctorId, doctorName, doctorHospital, doctorDepartments, doctorTitle, 
+		hospitalProvince, hospitalCity, isJoinCircle, title, startTime, endTime, limitNum, inviteNum, referrerIntegral, doctorCredit, 
+		mrId, mrName, mrDepartment, isEnterDetail, received, addCredit
+		from t_big_data
+		where actId = #{actId} 
+	</select>
+	
+	<select id="selectAll" resultType="com.staok.spboot.entity.BigData" parameterType="java.lang.Long">
+		select actTypeName, actName, doctorId, doctorName, doctorHospital, doctorDepartments, doctorTitle, 
+		hospitalProvince, hospitalCity, isJoinCircle, title, startTime, endTime, limitNum, inviteNum, referrerIntegral, doctorCredit, 
+		mrId, mrName, mrDepartment, isEnterDetail, received, addCredit
+		from t_big_data
+	</select>
+	
+	<select id="selectAllCount" resultType="java.lang.Integer" >
+		select count(1) from t_big_data
+	</select>
+	
+	<insert id="insert" parameterType="com.staok.spboot.entity.BigData">
+		INSERT INTO `t_big_data` (`actTypeName`, `actName`, `doctorId`, `doctorName`, `doctorHospital`, `doctorDepartments`, `doctorTitle`, 
+		`hospitalProvince`, `hospitalCity`, `isJoinCircle`, `title`, `startTime`, `endTime`, `limitNum`, `inviteNum`, `referrerIntegral`, `doctorCredit`, 
+		`mrId`, `mrName`, `mrDepartment`, `isEnterDetail`, `received`, `addCredit`) 
+		VALUES (#{bean.actTypeName}, #{bean.actName}, #{bean.doctorId}, #{bean.doctorName}, #{bean.doctorHospital}, #{bean.doctorDepartments}, #{bean.doctorTitle}, 
+		#{bean.hospitalProvince}, #{bean.hospitalCity}, #{bean.isJoinCircle}, #{bean.title}, #{bean.startTime}, #{bean.endTime}, #{bean.limitNum}, #{bean.inviteNum}, #{bean.referrerIntegral}, #{bean.doctorCredit}, 
+		#{bean.mrId}, #{bean.mrName}, #{bean.mrDepartment}, #{bean.isEnterDetail}, #{bean.received}, #{bean.addCredit})
+	</insert>
+</mapper>
